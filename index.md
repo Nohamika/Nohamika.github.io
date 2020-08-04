@@ -1,3 +1,8 @@
+## this is a title
+# this is less of a title
+Hi
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/Nohamika/Nohamika.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
