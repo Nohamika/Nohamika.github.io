@@ -1,6 +1,3 @@
-title: Welcome
-description: this is it
-
 ## this is a title
 # this is less of a title
 Hi
