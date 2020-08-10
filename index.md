@@ -1,6 +1,38 @@
+## Intro
+
+The idea behind this paper is to try to understand what causes corona virus to spread faster in one country than another. What features about a country makes it so much better coping with the pandemic. the results may surprise you.
+# In this article I will cover the three parts of the model:
+
+1)	Collecting and preparing the data
+2)	Clustering the countries according to their covid-19 spread rate
+3)	Using data about the countries to classify them into the different clusters from step 2.
+
+I will show parts of my code within the explanation, if you want the full model code you can find it in the github repository.
+
+## Step 1: collecting and preapring the data
+
+I collected the data from the website "Our World in Data".
+I download a csv that include for each country the number of total dead people from COVID-19 for each date. The csv file I used had the dates until 31/07/2020, but the site is updated every day so new data can be added.
+You can find the file with the data you can find it in the Github repository.
+Lets look at our data:
+
+location | total_deaths_per_million
+-------- | ------------------------
+Afghanistan | 0.128
+Afghanistan | 0.180
+Afghanistan | 0.180
+Afghanistan | 0.283
+Afghanistan | 0.360
+... | ...
+Zimbabwe | 2.288
+Zimbabwe | 2.422
+Zimbabwe | 2.691
+Zimbabwe | 2.759
+Zimbabwe | 2.566
+
+
 ## this is a title
-# this is less of a title
-Hi
+# this is more of a title
 
 
 ## Welcome to GitHub Pages
