@@ -1,15 +1,15 @@
-## Intro
+# Intro
 
 The idea behind this paper is to try to understand what causes corona virus to spread faster in one country than another. What features about a country makes it so much better coping with the pandemic. the results may surprise you.
-# In this article I will cover the three parts of the model:
+## In this article I will cover the three parts of the model:
 
-1)	Collecting and preparing the data
-2)	Clustering the countries according to their covid-19 spread rate
+1)	Collecting and preparing the data \n
+2)	Clustering the countries according to their covid-19 spread rate \n
 3)	Using data about the countries to classify them into the different clusters from step 2.
 
 I will show parts of my code within the explanation, if you want the full model code you can find it in the github repository.
 
-## Step 1: collecting and preapring the data
+# Step 1: collecting and preapring the data
 
 I collected the data from the website "Our World in Data".
 I download a csv that include for each country the number of total dead people from COVID-19 for each date. The csv file I used had the dates until 31/07/2020, but the site is updated every day so new data can be added.
