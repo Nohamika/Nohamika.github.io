@@ -21,9 +21,7 @@ location | total_deaths_per_million
 Afghanistan | 0.128
 Afghanistan | 0.180
 Afghanistan | 0.180
-Afghanistan | 0.283
 ... | ...
-Zimbabwe | 2.422
 Zimbabwe | 2.691
 Zimbabwe | 2.759
 Zimbabwe | 2.566
@@ -34,10 +32,33 @@ So now I have a list of lists, I have 116 lists inside the big list, each list r
 
 **there will be an image here**
 
-Lastly ill do log on all the data in the list of lists and our data is ready.
+Lastly ill do log on all the data in the list of lists and our data is ready:
 
 ```
 [[-1.584745299843729, -1.5005835075220182,...],...,[...,2.908266247772715, 2.908266247772715]]
+```
+
+# Step 2: Clustring the Countries
+To cluster countries I need to understand the similarity between them. To do that I create a distance matrix:
+``` 
+from scipy.spatial import distance_matrix
+countries_dis = pd.DataFrame(distance_matrix(data, data))
+```
+
+This matrix shows the distance between every 2 countries:
+```
+           0          1          2    ...        113        114        115
+0     0.000000   6.659591   9.301262  ...  34.289718  37.705250  23.534778
+1     6.659591   0.000000   4.683849  ...  29.019417  32.331640  18.004010
+2     9.301262   4.683849   0.000000  ...  25.128690  28.515404  14.322602
+3    13.712355   7.769635   4.931949  ...  21.422582  24.644642  10.304785
+4    15.723163  10.284375   6.822073  ...  19.221853  22.401135   8.153682
+..         ...        ...        ...  ...        ...        ...        ...
+111  35.660148  30.138568  26.460299  ...   3.958171   3.166323  12.199858
+112  50.512313  45.760384  41.620737  ...  17.451746  15.246749  28.432069
+113  34.289718  29.019417  25.128690  ...   0.000000   3.770752  11.212965
+114  37.705250  32.331640  28.515404  ...   3.770752   0.000000  14.356435
+115  23.534778  18.004010  14.322602  ...  11.212965  14.356435   0.000000
 ```
 
 ## this is a title
