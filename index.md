@@ -22,14 +22,23 @@ Afghanistan | 0.128
 Afghanistan | 0.180
 Afghanistan | 0.180
 Afghanistan | 0.283
-Afghanistan | 0.360
 ... | ...
-Zimbabwe | 2.288
 Zimbabwe | 2.422
 Zimbabwe | 2.691
 Zimbabwe | 2.759
 Zimbabwe | 2.566
 
+For each country I named day1 (or t0 if you like) the first day with at least 5 dead people.
+Then, to make sure all the countries have the same number of days, I took the biggest number of days all the countries have entries for, and I got 102 days each.
+So now I have a list of lists, I have 116 lists inside the big list, each list represent a country, and in each list of a country I have 92 entries which are the number of dead people per million that day (from day 10 to day 102)
+
+**there will be an image here**
+
+Lastly ill do log on all the data in the list of lists and our data is ready.
+
+```
+[[-1.584745299843729, -1.5005835075220182,...],...,[...,2.908266247772715, 2.908266247772715]]
+```
 
 ## this is a title
 # this is more of a title
