@@ -28,9 +28,9 @@ Zimbabwe | 2.566
 
 For each country I named day1 (or t0 if you like) the first day with at least 5 dead people.
 Then, to make sure all the countries have the same number of days, I took the biggest number of days all the countries have entries for, and I got 102 days each.
-So now I have a list of lists, I have 116 lists inside the big list, each list represent a country, and in each list of a country I have 92 entries which are the number of dead people per million that day (from day 10 to day 102)
+So now I have a list of lists, I have 116 lists inside the big list, each list represent a country, and in each list of a country I have 92 entries which are the number of dead people per million that day (from day 10 to day 102):
 
-**there will be an image here**
+![the list of lists.png](https://github.com/Nohamika/Nohamika.github.io/blob/master/the%20list%20of%20lists.png)
 
 Lastly ill do log on all the data in the list of lists and our data is ready:
 
@@ -61,7 +61,17 @@ This matrix shows the distance between every 2 countries:
 115  23.534778  18.004010  14.322602  ...  11.212965  14.356435   0.000000
 ```
 
-![the list of lists.png](https://github.com/Nohamika/Nohamika.github.io/blob/master/the%20list%20of%20lists.png)
+Great, now we will cluster the countries according to those distances using the Louvain method.
+The Louvain method is a community's detection method in graphs. This method partitions the nodes of the graph into different communities according to the edge's weights. Here, Every node is a country, the weight of an edge repsrest the similarity between the 2 countries, and the communities are the clustesrs.
+
+To use this method I will use the Networkx library and create an empty graph.
+Next, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
+The more similar 2 countries are I want the edge that connects them to have a higher weight, in other words, The smaller the distance the bigger the weight. Therefore, I will calculate the weight as follow:
+
+***Weight = Divider/ Distance***
+The divider can be any number greater than 0, I choose 100. 
+Our graph ready, time to use the Louvain method to cluster the countries. For that we will use the community package:
+
 
 ## this is a title
 # this is more of a title
