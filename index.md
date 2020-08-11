@@ -258,7 +258,9 @@ The accuracy has gone up to 93%! 93% might not seem as exciting as 99.8% models 
 
 # conclusion
 The more we explore and analyze the pandamic to more we understand it, and that is what I tried to do in this project.
-The features that effect a countries abillity to cope with the pandemic are not the ones you may expect, and the features that you may excpet to influence the pandmic end up to be very insignificant. for exmaple I did not expect obesity rate to have an affect at all, espically not that big of an affect, but after this study I learned that weight has a lot to do with you abillity to cope with COVID-19. also, since mostly older people die from the disease I thought the median age or the precent of people over 65 would have a huge influence, but according not to this model (I tried to add those features and the predication accuracy got worse).
+The features that effect a countries abillity to cope with the pandemic are not the ones you may expect, and the features that you may excpet to influence the pandmic end up to be very insignificant. 
+for exmaple I did not expect obesity rate to have an affect at all, espically not that big of an affect, but after this study I learned that weight has a lot to do with you abillity to cope with COVID-19. 
+also, since mostly older people die from the disease I thought the median age or the precent of people over 65 would have a huge influence, but according not to this model (I tried to add those features and the predication accuracy got worse).
 
 I hope you learned from this article both about mechine learning and about COVID-19, and you found the reading, fun.
 
