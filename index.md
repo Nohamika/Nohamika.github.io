@@ -68,7 +68,7 @@ To use this method I will use the Networkx library and create an empty graph.
 To fill the graph with the nodes, edges and weights that I need, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
 The more similar 2 countries are I want the edge that connects them to have a higher weight, in other words, The smaller the distance the bigger the weight. Therefore, I will calculate the weight as follow:
 
-                                                     Weight = Divider/ Distance
+                                 Weight = Divider/ Distance
 
 The divider can be any number greater than 0, I choose 100.
 
