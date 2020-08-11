@@ -189,6 +189,7 @@ First thing we can do is feature selection. The features I have right now (e.g.:
 To choose the best features I used a method called forward selection. you can read about it here: [forward selection in wikipidia](https://en.wikipedia.org/wiki/Stepwise_regression#Main_approaches)
 
 The forward selection results are: **gdp per capita, Obesity rate, longitude and Political culture.**
+
 let see the results after feature selection:
  ```
 Accuracy of train XGBClassifier(objective='multi:softprob') is 1.0
@@ -200,9 +201,43 @@ Confusion Matrix of XGBClassifier(objective='multi:softprob') is
  ```
  The model has improved, yay!
  
- Another thing we can do is model tuning. Every machine learning model, XGBoost included, has different paramaters that can be changed to improve model performance.
- Sadly, the only way to find those much wanted paramters is to try A LOT of options and hope we will get the best ones. I used GridSearchCV to tune my model if you want to read more about it, [click here](https://www.kaggle.com/tilii7/hyperparameter-grid-search-with-xgboost)
+The features in the model are very intreting, let look how much each of them contributes to the predition of the model by plotting a feature importance bar plot:
+![Feature importance after](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/Feature_importance_after.png)
+
+It appears that GDP per capita is the most important feature. This makes sense to me, the wealter the country the more resurces it has to do tests and give medical treatment to those in need.
+Obesity rate also makes sense beacuse over weight people are in a danger group, which mean an over weight person who catches COVID-19 is more likey to die from it than a person with a standard BMI.
+Political culture is hard to define but it is masured by the trust the people give to their goverment, if the people listen to the govrement laws and desicions, and how much influence does the people have on the goverment, or in other words, if the govrement really represents the people. This means the the functioning of the goveremnt and the peoples trust in it, matters when it comes to deal with a pandamic, this may not be suprising, yes it is very intresting.
+Lastly we have the longitude feature. this feature suprised me beacuse I can not think of a direct influence on the COVID-19 situation. but to see how longitude effect, I colored a world map by the clusters:
+
+
+In fact lets take a look at how all of the 4 features affect. To do that I used a UMAP.
+UMAP is a demision reducation tool that helps present high dimensional data on a 2D scatter plot.
+I plotted the data about the COVID-19 deaths using UMAP and colored it by each of the features. Each point represent a country:
+
+
  
+ 
+ 
+ Another thing we can do is model tuning. Every machine learning model, XGBoost included, has different paramaters that can be changed to improve model performance.
+ Sadly, the only way to find those much wanted paramters is to try A LOT of options and hope we will get the best ones. I used GridSearchCV to tune my model if you want to read more about it, [click here](https://www.kaggle.com/tilii7/hyperparameter-grid-search-with-xgboost).
+ 
+ The paramaters I got(the paramaters that does not appear means the deafult option is the best): ```learning_rate=0.5, max_depth=4, n_estimators=400```
+ 
+ lets look at out final results:
+ ```
+ Accuracy of train XGBClassifier(learning_rate=0.5, max_depth=4, n_estimators=400,
+              objective='multi:softprob') is 1.0
+Accuracy of test XGBClassifier(learning_rate=0.5, max_depth=4, n_estimators=400,
+              objective='multi:softprob') is 0.9310344827586207
+Confusion Matrix of XGBClassifier(learning_rate=0.5, max_depth=4, n_estimators=400,
+              objective='multi:softprob') is
+[[15  0  0]
+ [ 0  7  0]
+ [ 1  1  5]]
+```
+The accuracy has gone up to 93%! 93% might not seem as exciting as 99.8% models we see on kaggle but if we look at the confusion matrix we can see there are only 2 countries that are miss predict.
+
+# conclusion
 
 
 ## this is a title
