@@ -65,12 +65,28 @@ Great, now we will cluster the countries according to those distances using the 
 The Louvain method is a community's detection method in graphs. This method partitions the nodes of the graph into different communities according to the edge's weights. Here, Every node is a country, the weight of an edge repsrest the similarity between the 2 countries, and the communities are the clustesrs.
 
 To use this method I will use the Networkx library and create an empty graph.
-Next, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
+To fill the graph with the nodes, edges and weights that I need, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
 The more similar 2 countries are I want the edge that connects them to have a higher weight, in other words, The smaller the distance the bigger the weight. Therefore, I will calculate the weight as follow:
 
                                                                   Weight = Divider/ Distance
 
-The divider can be any number greater than 0, I choose 100. 
+The divider can be any number greater than 0, I choose 100.
+The data frame for the graph is as follow:
+```
+ source        target     weight
+Kenya         Niger  15.015936
+Kenya          Mali  10.751229
+Kenya       Somalia   7.292694
+Kenya       Liberia   6.360043
+Kenya  Burkina Faso  10.940958
+...       ...           ...        ...
+Italy       Austria   6.558775
+Italy        Greece   3.517155
+Finland       Austria  26.519906
+Finland        Greece   8.918247
+Austria        Greece   6.965518
+```
+
 Our graph ready, time to use the Louvain method to cluster the countries. For that we will use the community package:
 
 
