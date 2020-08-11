@@ -68,7 +68,7 @@ To use this method I will use the Networkx library and create an empty graph.
 To fill the graph with the nodes, edges and weights that I need, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
 The more similar 2 countries are I want the edge that connects them to have a higher weight, in other words, The smaller the distance the bigger the weight. Therefore, I will calculate the weight as follow:
 
-                                 Weight = Divider/ Distance
+                      Weight = Divider/ Distance
 
 The divider can be any number greater than 0, I choose 100.
 
@@ -99,6 +99,7 @@ the result is saved in the variable 'partition' which is a dictionary that each 
 ```
 {'Kenya': 0, 'Niger': 0, 'Mali': 0, 'Somalia': 0, 'Liberia': 0,...,'Austria': 2, 'Greece': 1}
 ```
+The clusters are ready, lets take a look at them:
 
 lets look clusters of the countries:
 * cluster 0 (51 countries): 'Kenya', 'Niger', 'Mali', 'Somalia', 'Liberia', 'Burkina Faso', 'Tanzania’, 'Democratic Republic of Congo’,…
@@ -114,6 +115,11 @@ each node is a country colored according to its cluter. the closter 2 countries 
 lastly I will plot the time seires of the COVID-19 spread by the days of each country and color it by the cluster:
 
 ![/master/time_series_plot.png](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/time_series_plot.png)
+
+
+# Step 3: predicting the country's cluster by its data
+
+
 
 
 
