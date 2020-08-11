@@ -107,9 +107,13 @@ lets look clusters of the countries:
 
 We can also draw the graph:
 
+![graph_partition](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/graph_partition.png)
+
 each node is a country colored according to its cluter. the closter 2 countries are to each other is means they are more similer.
 
 lastly I will plot the time seires of the COVID-19 spread by the days of each country and color it by the cluster:
+
+![/master/time_series_plot.png](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/time_series_plot.png)
 
 
 
