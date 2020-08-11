@@ -100,6 +100,19 @@ the result is saved in the variable 'partition' which is a dictionary that each 
 {'Kenya': 0, 'Niger': 0, 'Mali': 0, 'Somalia': 0, 'Liberia': 0,...,'Austria': 2, 'Greece': 1}
 ```
 
+lets look clusters of the countries:
+* cluster 0 (51 countries): 'Kenya', 'Niger', 'Mali', 'Somalia', 'Liberia', 'Burkina Faso', 'Tanzania’, 'Democratic Republic of Congo’,…
+* cluster 1 (22 countries): 'South Africa', 'Guatemala', 'Honduras', 'Guyana', 'Bolivia', 'El Salvador’,…
+* cluster 2 (43 countries): 'Dominican Republic', 'Peru', 'Brazil', 'Panama', 'Ecuador’,…
+
+We can also draw the graph:
+
+each node is a country colored according to its cluter. the closter 2 countries are to each other is means they are more similer.
+
+lastly I will plot the time seires of the COVID-19 spread by the days of each country and color it by the cluster:
+
+
+
 ## this is a title
 # this is more of a title
 
