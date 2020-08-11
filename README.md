@@ -1,4 +1,5 @@
-Hello and welcome to the COVID-19 project repository.
+# Hello and welcome to the COVID-19 project repository.
+
 You can read the articale about the project in the following link: https://nohamika.github.io/
 You can look at the code of the model in the in the file: Covid_19_mode.py
 
