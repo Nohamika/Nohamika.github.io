@@ -30,7 +30,7 @@ For each country I named day1 (or t0 if you like) the first day with at least 5 
 Then, to make sure all the countries have the same number of days, I took the biggest number of days all the countries have entries for, and I got 102 days each.
 So now I have a list of lists, I have 116 lists inside the big list, each list represent a country, and in each list of a country I have 92 entries which are the number of dead people per million that day (from day 10 to day 102):
 
-![the list of lists.png](https://github.com/Nohamika/Nohamika.github.io/blob/master/the%20list%20of%20lists.png)
+![the list of lists.png](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/the%20list%20of%20lists.png)
 
 Lastly ill do log on all the data in the list of lists and our data is ready:
 
