@@ -201,31 +201,31 @@ Confusion Matrix of XGBClassifier(objective='multi:softprob') is
  ```
  The model has improved, yay!
  
-The features in the model are very intreting, let look how much each of them contributes to the predition of the model by plotting a feature importance bar plot:
+The features in the model are very intreting, lets look how much each of them contributes to the prediction of the model by plotting a feature importance bar plot:
 
 ![Feature importance after](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/Feature_importance_after.png)
 
-It appears that GDP per capita is the most important feature. This makes sense to me, the wealter the country the more resurces it has to do tests and give medical treatment to those in need.
+It appears that GDP per capita is the most important feature. This makes sense to me, the wealthier the country the more resurces it has to do tests and give medical treatment to those in need.
 
 Obesity rate also makes sense beacuse over weight people are in a danger group, which mean an over weight person who catches COVID-19 is more likey to die from it than a person with a standard BMI.
 
-Political culture is hard to define but it is masured by the trust the people give to their goverment, if the people listen to the govrement laws and desicions, and how much influence does the people have on the goverment, or in other words, if the govrement really represents the people. This means the the functioning of the goveremnt and the peoples trust in it, matters when it comes to deal with a pandamic, this may not be suprising, yes it is very intresting.
+Political culture is hard to define but it is measured by the trust the people give to their government, if the people listen to the government laws and desicions, and how much influence does the people have on the government, or in other words, if the government really represents the people. This means the the functioning of the government and the peoples trust in it, matters when it comes to deal with a pandamic, this may not be suprising, yet it is very intresting.
 
-Lastly we have the longitude feature. this feature suprised me beacuse I can not think of a direct influence on the COVID-19 situation. but to see how longitude effect, I colored a world map by the clusters:
+Lastly we have the longitude feature. this feature suprised me beacuse I can not think of a direct influence on the COVID-19 situation. but to see the longitude effect, I colored a world map by the clusters:
 
 ![map of the world colored](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/Countries%20Clusters%20-%20World%20Map.png)
 
 In fact lets take a look at how all of the 4 features affect. To do that I used a UMAP.
-UMAP is a demision reducation tool that helps present high dimensional data on a 2D scatter plot.
-I plotted the data about the COVID-19 deaths using UMAP and colored it by each of the features. Each point represent a country:
+UMAP is a demision reducation tool that helps present high dimensional data on a 2D scatter plot. Each point in the plot represent a sample, in this case, a country.
+Let's see What a UMAP represting the COVIS-19 deaths data:
 
 ![Original_UMAP](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/Original_UMAP.png)
 
- This scatter plot will be the same but colored by the clusters we got on the previous step:
+ Now let's color it by the clusters we got on the previous step:
  
  ![UMAP_by_partition](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/UMAP_by_partition.png)
  
- Now I will color it by the features I got in the feature selection:
+ And if we color the UMAP by the features from the feature selection:
  
  ![UMAP_gdp](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/UMAP_GDP.png)
  
@@ -237,8 +237,9 @@ I plotted the data about the COVID-19 deaths using UMAP and colored it by each o
  
  
  
- Another thing we can do is model tuning. Every machine learning model, XGBoost included, has different paramaters that can be changed to improve model performance.
- Sadly, the only way to find those much wanted paramters is to try A LOT of options and hope we will get the best ones. I used GridSearchCV to tune my model if you want to read more about it, [click here](https://www.kaggle.com/tilii7/hyperparameter-grid-search-with-xgboost).
+Another thing we can do is model tuning. Every machine learning model, XGBoost included, has different parameters that can be changed to improve model performance.
+Sadly, the only way to find those much wanted parameters is to try **A LOT** of options and hope we will get the best one.
+I used GridSearchCV to tune my model if you want to read more about it, [click here](https://www.kaggle.com/tilii7/hyperparameter-grid-search-with-xgboost).
  
  The paramaters I got(the paramaters that does not appear means the deafult option is the best): ```learning_rate=0.5, max_depth=4, n_estimators=400```
  
@@ -256,11 +257,14 @@ Confusion Matrix of XGBClassifier(learning_rate=0.5, max_depth=4, n_estimators=4
 ```
 The accuracy has gone up to 93%! 93% might not seem as exciting as 99.8% models we see on kaggle but if we look at the confusion matrix we can see there are only 2 countries that are miss predict.
 
+
 # conclusion
 The more we explore and analyze the pandamic to more we understand it, and that is what I tried to do in this project.
-The features that effect a countries abillity to cope with the pandemic are not the ones you may expect, and the features that you may excpet to influence the pandmic end up to be very insignificant. 
-for exmaple I did not expect obesity rate to have an affect at all, espically not that big of an affect, but after this study I learned that weight has a lot to do with you abillity to cope with COVID-19. 
-also, since mostly older people die from the disease I thought the median age or the precent of people over 65 would have a huge influence, but according not to this model (I tried to add those features and the predication accuracy got worse).
+The features that effect a countries abillity to cope with the pandemic are not the ones you may expect, and the features that you may excpet to influence the pandmic end up to be very insignificant.
+
+for exmaple I did not expect obesity rate to have an affect at all, especially not that big of an affect, but after this study I learned that weight has a lot to do with the abillity of the body to cope with COVID-19. 
+
+also, since mostly older people die from the disease I thought the median age or the precent of people over the age 65 would have a huge influence, but not according to this model (I tried to add those features and the predication accuracy got worse).
 
 I hope you learned from this article both about mechine learning and about COVID-19, and you found the reading, fun.
 
