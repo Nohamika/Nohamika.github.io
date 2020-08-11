@@ -68,9 +68,11 @@ To use this method I will use the Networkx library and create an empty graph.
 To fill the graph with the nodes, edges and weights that I need, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
 The more similar 2 countries are I want the edge that connects them to have a higher weight, in other words, The smaller the distance the bigger the weight. Therefore, I will calculate the weight as follow:
 
-                                                                  Weight = Divider/ Distance
+                                                     Weight = Divider/ Distance
 
 The divider can be any number greater than 0, I choose 100.
+
+
 The data frame for the graph is as follow:
 ```
  source        target     weight
@@ -88,7 +90,15 @@ Austria        Greece   6.965518
 ```
 
 Our graph ready, time to use the Louvain method to cluster the countries. For that we will use the community package:
-
+```
+import community
+partition = community.best_partition(G)
+```
+the function best_partition gives us the different clusters. 'G' is the graph I made before.
+the result is saved in the variable 'partition' which is a dictionary that each key is a country (node) and the value is the cluster:
+```
+{'Kenya': 0, 'Niger': 0, 'Mali': 0, 'Somalia': 0, 'Liberia': 0,...,'Austria': 2, 'Greece': 1}
+```
 
 ## this is a title
 # this is more of a title
