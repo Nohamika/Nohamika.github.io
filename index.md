@@ -12,9 +12,11 @@ I will show parts of my code within the explanation, if you want the full model 
 # Step 1: collecting and preapring the data
 
 I collected the data from the website "Our World in Data".
-I download a csv that include for each country the number of total dead people from COVID-19 for each date. The csv file I used had the dates until 31/07/2020, but the site is updated every day so new data can be added.
-You can find the file with the data you can find it in the Github repository.
-Lets look at our data:
+I download a csv that includes for each country the number of total dead people from COVID-19 for each date.
+The csv file I used had the dates until 31/07/2020, but the site is updated every day so new data can be added.
+You can find the file with the data in the Github repository.
+For each country I named day1 (or t0 if you like) the first day with at least 5 dead people.
+The following data frame include each country and the total deaths from Covid-10 from day1:
 
 location | total_deaths_per_million
 -------- | ------------------------
@@ -26,9 +28,9 @@ Zimbabwe | 2.691
 Zimbabwe | 2.759
 Zimbabwe | 2.566
 
-For each country I named day1 (or t0 if you like) the first day with at least 5 dead people.
-Then, to make sure all the countries have the same number of days, I took the biggest number of days all the countries have entries for, and I got 102 days each.
-So now I have a list of lists, I have 116 lists inside the big list, each list represent a country, and in each list of a country I have 92 entries which are the number of dead people per million that day (from day 10 to day 102):
+
+To make sure all the countries have the same number of days, I took the biggest number of days all the countries have entries for, and I got 102 days each.
+This process created a list of lists, 116 lists inside the big list, each list represent a country, and in each list of a country I have 92 entries which are the number of dead people per million that day (from day 10 to day 102):
 
 ![the list of lists.png](https://raw.githubusercontent.com/Nohamika/Nohamika.github.io/master/the%20list%20of%20lists.png)
 
@@ -61,11 +63,12 @@ This matrix shows the distance between every 2 countries:
 115  23.534778  18.004010  14.322602  ...  11.212965  14.356435   0.000000
 ```
 
-Great, now we will cluster the countries according to those distances using the Louvain method.
-The Louvain method is a community's detection method in graphs. This method partitions the nodes of the graph into different communities according to the edge's weights. Here, Every node is a country, the weight of an edge repsrest the similarity between the 2 countries, and the communities are the clustesrs.
+I attend to cluster the countries according to those distances using the Louvain method.
+The Louvain method is a community's detection method in graphs. This method partitions the nodes of the graph into different communities according to the edge's weights.
+Here, Every node is a country, the weight of an edge repsrest the similarity between the 2 countries, and the communities are the clustesrs.
 
 To use this method I will use the Networkx library and create an empty graph.
-To fill the graph with the nodes, edges and weights that I need, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of that edge.
+To fill the graph with the nodes, edges and weights that I need, I will create a data frame with all the edges (there is one edge between every 2 countries) and the weight of every edge.
 The more similar 2 countries are I want the edge that connects them to have a higher weight, in other words, The smaller the distance the bigger the weight. Therefore, I will calculate the weight as follow:
 
                       Weight = Divider/ Distance
@@ -89,7 +92,7 @@ Finland        Greece   8.918247
 Austria        Greece   6.965518
 ```
 
-Our graph ready, time to use the Louvain method to cluster the countries. For that we will use the community package:
+Our graph ready! Time to use the Louvain method to cluster the countries. For that we will use the community package:
 ```
 import community
 partition = community.best_partition(G)
@@ -119,8 +122,86 @@ lastly I will plot the time seires of the COVID-19 spread by the days of each co
 
 # Step 3: predicting the country's cluster by its data
 
+We are finally at the fun part, finding the characteristic of a country that makes it good (or bad) dealing with the pandemic.
 
+The model that I am building is a supervised classification model. The labels are the clusters from the previous step, and the data is the features about the country as you can see in the following data frame:
 
+```
+         is lockdown  num_days  ...  Civilliberties  Obesity rate
+country                         ...                              
+Kenya              0       100  ...            4.41           7.1
+Niger              0       100  ...            4.71           5.5
+Mali               0       100  ...            5.59           8.6
+Somalia            0       100  ...            2.94           8.3
+Liberia            1        20  ...            5.59           9.9
+```
+In total there are 23 features:
+```
+Index(['is lockdown', 'num_days', 'Literacy(%)', 'population',
+       'population_density', 'median_age', 'aged_65_older', 'gdp_per_capita',
+       'hospital_beds_per_100k', 'latitude', 'longitude',
+       'death_by_lack_of_hygiene', 'stringency index', 'cvd_death_rate',
+       'diabetes_prevalence', 'life_expectancy', 'democracy_score',
+       'Electoral processand pluralism', 'functioning of government',
+       'Political participation', 'Political culture', 'Civilliberties',
+       'Obesity rate'],
+      dtype='object')
+```
+
+For my model, I used the XGBClassifier from the xgboost package:
+```
+# Split the data into train test
+X_train, X_test, y_train, y_test = train_test_split(countries_df, labels, random_state=42, test_size=0.25,
+                                                            shuffle=True)
+# The xgb model
+clf = xgboost.XGBClassifier()
+
+# Fitting the data
+clf.fit(X_train, y_train)
+
+# Predicting the train data and checking the accuracy to see if the model learns
+y_pred_train = clf.predict(X_train)
+acc = accuracy_score(y_train, y_pred_train)
+print("Accuracy of train %s is %s" % (clf, acc))
+
+# Predicting the test data (a data the model havent seen) to evaluate it
+y_pred_test = clf.predict(X_test)
+acc = accuracy_score(y_test, y_pred_test)
+print("Accuracy of test %s is %s" % (clf, acc))
+
+# a confusion matrix on the test data
+cm = confusion_matrix(y_test, y_pred_test)
+print("Confusion Matrix of %s is" % (clf))
+print(cm)
+```
+running the simplest model, lets see the results:
+```
+Accuracy of train XGBClassifier(objective='multi:softprob') is 1.0
+Accuracy of test XGBClassifier(objective='multi:softprob') is 0.7241379310344828
+Confusion Matrix of XGBClassifier(objective='multi:softprob') is
+[[14  1  1]
+ [ 2  2  1]
+ [ 2  1  5]]
+ ```
+The train accuracy is 1.0 so we know that the model is learning but our test accuracy is 0.72 which is good but still could use improvement.
+
+First thing we can do is feature selection. The features I have right now (e.g.: population density, median age) are just my guesses of things I think can affect the spread of corona-virus, but not all of them are good predictors. 
+To choose the best features I used a method called forward selection. you can read about it here: [forward selection in wikipidia](https://en.wikipedia.org/wiki/Stepwise_regression#Main_approaches)
+The forward selection results are: **gdp per capita, Obesity rate, longitude and Political culture.**
+let see the results after feature selection:
+ ```
+Accuracy of train XGBClassifier(objective='multi:softprob') is 1.0
+Accuracy of test XGBClassifier(objective='multi:softprob') is 0.896551724137931
+Confusion Matrix of XGBClassifier(objective='multi:softprob') is
+[[16  0  0]
+ [ 1  5  0]
+ [ 1  1  5]]
+ ```
+ The model has improved, yay!
+ 
+ Another thing we can do is model tuning. Every machine learning model, XGBoost included, has different paramaters that can be changed to improve model performance.
+ Sadly, the only way to find those much wanted paramters is to try A LOT of options and hope we will get the best ones. I used GridSearchCV to tune my model if you want to read more about it, [click here](https://www.kaggle.com/tilii7/hyperparameter-grid-search-with-xgboost)
+ 
 
 
 ## this is a title
