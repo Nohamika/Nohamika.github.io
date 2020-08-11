@@ -187,6 +187,7 @@ The train accuracy is 1.0 so we know that the model is learning but our test acc
 
 First thing we can do is feature selection. The features I have right now (e.g.: population density, median age) are just my guesses of things I think can affect the spread of corona-virus, but not all of them are good predictors. 
 To choose the best features I used a method called forward selection. you can read about it here: [forward selection in wikipidia](https://en.wikipedia.org/wiki/Stepwise_regression#Main_approaches)
+
 The forward selection results are: **gdp per capita, Obesity rate, longitude and Political culture.**
 let see the results after feature selection:
  ```
