@@ -12,9 +12,11 @@ I will show parts of my code within the explanation. If you want the full model 
 # Step 1: collecting and preparing the data
 
 I collected the data from the website "Our World in Data". You can find a link to the website in the GitHub repository
+
 I download a CSV that includes for each country the number of total dead people from COVID-19 for each date.
 The CSV file I used had the dates until 31/07/2020, but the site is updated every day so new data can be added.
 You can find the file with the data in the GitHub repository.
+
 For each country I named day1 (or t0 if you like) the first day with at least 5 dead people.
 The following data frame includes each country and the total deaths from Covid-19 from day1:
 
