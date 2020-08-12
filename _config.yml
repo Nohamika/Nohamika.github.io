@@ -1,4 +1,3 @@
 theme: jekyll-theme-cayman
 title: Crona Virus ML model
-description: Predicting the COVID-19 death rate in a country, according to it's characteristics
-[GitHun repository](https://github.com/Nohamika/Nohamika.github.io)
+description: Predicting the COVID-19 death rate in a country, according to it's characteristics | <p>{{ GitHub repository| https://github.com/Nohamika/Nohamika.github.io }}</p>
