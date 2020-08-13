@@ -2,7 +2,7 @@
 
 The idea behind this paper is to try to understand what causes coronavirus to spread faster in one country than another. What features about a country makes it so much better or worse at coping with the pandemic. The results of this study may surprise you.
 
-For the full code and all the files, check out the project repository ![https://github.com/Nohamika/Nohamika.github.io](https://github.com/Nohamika/Nohamika.github.io)
+For the full code and all the files, check out the project repository [https://github.com/Nohamika/Nohamika.github.io](https://github.com/Nohamika/Nohamika.github.io)
 ## In this article I will cover the three parts of the model:
 
 1.  Collecting and preparing the data
