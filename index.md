@@ -271,3 +271,16 @@ For example, I did not expect obesity rate to have an effect at all, especially 
 Furthermore, since mostly older people die from the disease I thought the median age or the percent of people over the age of sixty-fivewould have a huge influence, but not according to this model (I tried to add those features and the predication accuracy got worse).
 
 I hope you learned from this article both about machine learning and about COVID-19, and that you found the reading fun.
+
+# Thanks
+This project was made by Noam Rozenboim in collaboration with Professor Yoram Louzoun from Bar Ilan university
+Link to Yoram Louzoun's lab: http://yolo.math.biu.ac.il/
+
+# Links
+- Covid-19 daily deaths dataset: https://ourworldindata.org/coronavirus
+- Countries features resources:
+           * https://en.wikipedia.org/wiki/Democracy_Index
+           * https://www.citypopulation.de/en/world/bymap/AirTrafficPassengers.html
+           * https://en.wikipedia.org/wiki/National_responses_to_the_COVID-19_pandemic
+           * https://developers.google.com/public-data/docs/canonical/countries_csv
+           * https://ourworldindata.org
