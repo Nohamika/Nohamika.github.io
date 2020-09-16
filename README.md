@@ -1,5 +1,8 @@
 # Hello and welcome to the COVID-19 project repository.
 
+This project was made by Noam Rozenboim in collaboration with Professor Yoram Louzoun from Bar Ilan university
+Link to Yoram Louzoun's lab: http://yolo.math.biu.ac.il/
+
 You can read the articale about the project in the following link: https://nohamika.github.io/
 
 You can look at the code of the model in the in the file: Covid_19_mode.py
